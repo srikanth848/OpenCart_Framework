@@ -276,7 +276,14 @@ GIT & GitHUB workflow
 9. Push the files to remote repository using the below command
 	- git push origin master
 ** if this is done for the first a log-in pop-up would come --> login
-   
+
+** Pushing files to remote repository will be everyday task, as new test cases or any other files will be developed and added to project
+** Add to Staging, commit to local repository and push to remote repository
+
+10. Pull the files from remote repository to local repository/Staging/workspace using the below command
+	- git pull repositoryURL
+** Only those files will be pulled which are not available/modified in the workspace
+
    
    
    
