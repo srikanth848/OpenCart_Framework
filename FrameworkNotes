@@ -1,0 +1,257 @@
+Framework --> organizing automation project files/folders in structured manner
+
+Main Objectives are
+1. Re-usability
+	- utilities
+	- avoiding duplication
+2. Maintainability
+	- should allow modification of test cases
+3. Readability
+	- should be understandable by everyone (even for beginners)	
+
+
+Types of Frameworks
+-------------------
+1. Built-in (third party libraries which can be installed and used)
+   Ex: TestNG, JUnit, Cucumber, Robot,....
+
+2. Customized (user defined)
+   Ex: Data Driven, Keyword Driven, Hybrid Driven, Modular...
+
+
+Phases/Stages involved for framework development
+------------------------------------------------
+1. Analyzing AUT (Application Under Test)
+	- Number of pages to be automated --> POM classes will be decided
+	- What are all elements to be automated, what type of elements they are and how can be automated
+	- What to be automated and What cannot be automated
+	
+2. Choose test cases for automation (test cases are chosen based on the priority)
+	- Sanity test cases (P1) --> if these test cases are failed, we cannot proceed further
+	- Data Driven test cases/re-tests (P2) --> repeating tests with different data
+	- Regression test cases (P3) --> tests chosen from the impacted areas due to defect/change
+	- Any other test cases that can be automated (P4)
+	  --> these tests can be later regression tests for any other defects
+	  --> these will be automated based on the time-lines
+
+** Automation starts only when the build/application becomes stable
+	
+** Can we achieve 100% automation ??
+	- Say there are 100 test cases --> 90 can be automated and 10 cannot be automated
+      If we are able to automate all 90 test cases ==> 100% automation
+    - If expectation is to automate entire application, then 100% automation is not possible
+   
+3. Design & Development of framework
+	- Design is blueprint/creation of folder structure of the framework
+	  --> page object classes, utility files, reports, test data files, tests,...... within framework where we can have all these will be decided during design
+	
+	- Development is adding the stuff into framework
+	  --> adding page object classes, utilities, test cases, test data files,..... at the initial stage and as the project progresses development activities will be carried out
+   
+4. Execution (test suite chosen specific to the requirement)
+	- Execution can be local and remote
+	  --> within the local system using IDE
+	  --> some other environment/machine using Selenium GRID, Jenkin (pulling the code from remote repository --> Git)
+
+5. Maintenance (mostly happens as the project progresses)
+	- As multiple resources are involved in the development, everyone will have their own local repository
+	- Once done with the development, the code/files will be pushed to remote repository
+	- From remote repository, code will be pulled and run in remote environment (Ex: Devops Environment --> Jenkins)
+
+
+Domain --> Specific area
+Ex: Banking, HealthCare, E-Commerce....
+
+
+1. Front-End Operation (Customers/Users)
+	- Register an account
+	- Login
+	- Search for the products
+	- Order products
+	- Payment process
+	- Log Out
+	......
+	
+2. Back-End Operations (Admins/Backend Team)
+	- Customers/Accounts
+	- Products
+	- Orders
+	- Payments
+	.......
+
+Steps
+-----
+1. Create Maven Project
+2. Add required dependencies in pom.xml
+	- Selenium, Apache POI, TestNG, Extent Reports, Log4j, Commons
+3. Create folder structure
+	- src/test/java
+		- pageObjects --> stores all web elements and required actions
+		- testBase    --> reusable methods
+		- testCases   --> test cases
+		- utilities   --> excel utility, extent report utility, data providers
+	- src/test/resources
+		- properties  --> configuration properties
+	- logs            --> log files
+	- reports         --> extent reports
+	- screenshots     --> failure screenshots
+	- testData        --> test data files
+4. Start with the development
+	- adding Page Object classes, test cases classes, excel utility class, extent report class
+5. Start executing the test cases using .xml files
+	- create master.xml, grouping.xml, cross-browserTesting.xml....
+6. Setting up Grid
+
+
+Logs
+-----
+Log files are used for logging/recording all the events in the form of text
+	- name of the log file should always be log4j2.xml
+	- every action performed on the application can be logged through the test case
+	- pass/failure of tests are also recorded in log file
+	
+** Log Levels --> All < Trace < Debug < Info < Warn < Error < Fatal < Off
+
+Appenders --> where to generate logs (Console/File)
+Loggers   --> what level of logs should be generated
+
+** Logger has to be imported from the correct package (log4j)
+** Declare and initiate Logger in BaseClass
+	- Logger logger = LogManager.getLogger(this.getClass); --> this will get the class name during runtime based on the logging request made
+
+
+config.properties file
+----------------------
+properties file is used for maintaining common data/variables
+
+
+Extent Report
+-------------
+This is one time configuration to the project and is invoked using Listeners tag
+
+
+** Failed tests are captured in "testng-failed.xml" --> located under test-output folder
+	-- this file is helpful in running the failed tests only
+	-- file will refresh only when the next failure occurs
+
+	
+Selenium Grid
+-------------
+Mainly consists of Hub and Nodes
+	- Hub is where the Grid is setup and controls the execution
+	- Nodes are different physical/virtual machines that are connected to Hub
+	
+Standalone setup (Single Machine) --> same machine acts as Hub and Node
+	- download the selenium server jar
+	- run the command "java -jar selenium-server-4.20.0.jar standalone"
+	- post successful setup, it will provide the URL - http://192.168.0.114:4444/ui/ ==> http://localhost:4444/ui/
+
+Distributed setup (Mutliple Machines) --> multiple remote nodes are connected to single Hub
+						   				  based on OS & Browser, tests will be executed on a particular node
+	- download the selenium server jar in hub and nodes
+	- run the command "java -jar selenium-server-4.20.0.jar hub" ==> on Hub machine
+	- run the command "java -jar selenium-server-4.20.0.jar node --hub http://<Hub IP>:4444" ==> on Node machines
+	- post successful setup, it will provide the URL - http://192.168.0.114:4444/ui/ ==> http://localhost:4444/ui/
+
+Docker --> Containerization tool
+	- offers different images (specific OS)
+	- create containers by downloading the images
+	- these containers will act as nodes
+
+Docker Setup
+------------
+1. Download Docker executable file (Docker Desktop Installer) and restart the system
+2. Sign up with personal email
+3. Post successful installation, run the below commands in command prompt to ensure docker service is running
+	- docker version 			==> shows client and server details
+	- docker-compose version
+	
+Common Commands:
+	- docker -v 					==> shows the docker version
+	- docker info 					==> shows the docker system-wide information
+	- docker --help 				==> shows the list of docker commands
+	- docker login					==> for logging into docker
+	
+Image related Commands:
+	- docker images 				==> shows the available images information
+	- docker pull <image name>  	==> downloads the image
+	- docker rmi <image name/ID>	==> deletes the image
+	
+Container Commands:
+	- docker ps 					==> shows the containers that are currently running
+	- docker run <image name> 		==> creates the container with image (if image is not available, it will download and create container)
+	- docker run -it <image name>	==> starts running the container
+	- docker stop <container ID>	==> stops the container
+	- docker start <container ID> 	==> starts the stopped container only
+	- docker rm <container ID>		==> deletes the container
+	
+System Commands:
+	- docker stats 					==> provides the system statistics for running cintainer
+	- docker system 				==> provides the images, containers information
+	- docker system prune -f		==> forcefully deletes all the stopped containers
+
+	
+Selenium Grid setup with Docker
+--------------------------------
+1. Download the required images (hub, nodes)
+	- docker pull selenium/hub
+	- docker pull selenium/node-chrome
+	- docker pull selenium/node-edge
+2. Create a network where hub and nodes are connected
+	- docker network create <network name>
+3. Create and run the containers
+	- docker run -d -p 4442-4444:4442-4444 --net <network name> --name selenium-hub selenium/hub
+	- docker run -d --net <network name> -e SE_EVENT_BUS_HOST=selenium-hub -e SE_EVENT_BUS_PUBLISH_PORT=4442 -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 selenium/node-chrome
+	- docker run -d --net <network name> -e SE_EVENT_BUS_HOST=selenium-hub -e SE_EVENT_BUS_PUBLISH_PORT=4442 -e SE_EVENT_BUS_SUBSCRIBE_PORT=4443 selenium/node-edge
+4. we can see the Selenium Grid setup on http://localhost:4444/ui/
+5. we are good to run the scripts/tests on Grid
+6. create docker-compose.yaml file and run the below command to setup grid
+	- docker-compose up
+7. Use below command for removing containers and grid setup
+	- docker-compose down
+	
+
+Execution
+---------
+testng.xml is used for running the tests internally or within the eclipse
+pom.xml is used for running the tests outside of the eclipse
+
+dependencies --> JARs/libraries on which project directly relies on for its functionality
+plug-ins 	 --> used for compiling and running the project
+1. Maven Compiler plug-in 
+2. Maven Surefire plug-in
+
+** configure testng.xml file under surefire plugin
+** Run pom.xml as maven test --> this will internally execute testng.xml
+
+In order to run tests with CI tools, we would need Maven installed on our machine
+Download tar file and add Maven configuration path in Environment Variables
+Run the below command to ensure Maven successfully installed
+	- mvn -version
+** Run the below command for running pom.xml through command prompt
+	- mvn test
+
+** Create run.bat (batch) file with the below contents and double click (running the batch file) 
+	- cd <project path>
+	- mvn test
+	
+
+Maven Goals --> specific tasks that contribute to the building and management of a project
+	1. Compile	==> compiling code
+	2. Deploy	==> deployment of code
+	3. Test		==> Running tests 
+	4. Package	==> Packaging artifacts
+	5. Install	==> Installing dependencies
+	
+DevOps Team is responsible for
+	1. Build Creation		==> code developed by developers is pulled and build is created using Maven
+	2. Run Automation		==> automation scripts (Sanity) developed by QA are pulled and run using Jenkins against the created build
+	3. Build Certification	==> finally build is certified and available for further testing in QA environment
+
+
+GIT
+   
+   
+   
+   
+   
