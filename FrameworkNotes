@@ -249,8 +249,34 @@ DevOps Team is responsible for
 	3. Build Certification	==> finally build is certified and available for further testing in QA environment
 
 
-GIT
-   
+GIT & GitHUB workflow
+---------------------
+1. Download and Install Git
+2. Create an account in GitHUB
+3. Create a local repository inside the project folder using the below command
+	- git init
+4. Configure username and email for local repository using the below commands
+	- git config --global user.name "username" (Srikanth Pilli)
+	- git config --global user.email "email" (srikanthpilli780@gmail.com)
+5. Status of the files can be known using the below command
+	- git status
+	** untracked files ==> files available in workspace
+	** tracked files   ==> files available in staging/indexing area
+	** committed files ==> files available in local git repository
+	** remote files    ==> files available in GitHUB repository
+6. Files/Folders can be added to staging/index area using the below command
+	- git add -A		==> All files and folders will be added
+	- git add file		==> only particular file will be addedd
+	- git add folder	==> only particular folder will be added
+	- git add *.java	==> files with that particular extension will be added
+7. Files can be committed to Local Git repository using the below command
+	- git commit -m "message"
+8. Create a new remote repository in GitHUB and link/connect both local & remote repositories using the below command
+	- git remote add origin "repository URL" (https://github.com/srikanth848/OpenCart_Framework.git)
+9. Push the files to remote repository using the below command
+	- git push origin master
+** if this is done for the first a log-in pop-up would come --> login
+10. 
    
    
    
