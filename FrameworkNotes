@@ -276,7 +276,6 @@ GIT & GitHUB workflow
 9. Push the files to remote repository using the below command
 	- git push origin master
 ** if this is done for the first a log-in pop-up would come --> login
-10. 
    
    
    
