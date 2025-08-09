@@ -94,6 +94,7 @@ public class ExtentReportManager implements ITestListener {
 		
 		try {
 			Desktop.getDesktop().browse(extentReport.toURI());
+			Desktop.getDesktop().open(extentReport);
 		}
 		catch(IOException e) {
 			e.printStackTrace();

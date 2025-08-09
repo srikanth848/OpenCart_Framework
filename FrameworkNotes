@@ -281,9 +281,49 @@ GIT & GitHUB workflow
 ** Add to Staging, commit to local repository and push to remote repository
 
 10. Pull the files from remote repository to local repository/Staging/workspace using the below command
-	- git pull repositoryURL
-** Only those files will be pulled which are not available/modified in the workspace
+	- git pull "repository URL"
+** Only those files will be pulled which are not available/modified
 
-   
+11. Project/Repository can be cloned into local repository using the below command
+	- git clone "cloning repository URL"
+** Clones the entire project
+
+
+Jenkins
+-------
+CI (Continuous Integration) Tool owned by DevOps team
+
+Setting Up Jenkins
+------------------
+** Before setting up Jenkins, we should have JDK17/JDK21 installed and configured in System path
+
+Download Jenkins .war file or Windows Installer
+1. If .war is used then run the below command in command prompt and note the initial password
+	- java -jar jenkins.war
+2. If Windows Installer is used then select Run Service as LocalSystem in Service Logon Credentials screen and note the initial password from jenkins.err file
+	
+Once Installation is done, Jenkins will start running on port 8080 => http://localhost:8080
+
+** Create First Admin user ==> Admin, admin
+
+Check for the required plugins under Installed Plugins if not found install them from Available Plugins ==> Manage Jenkins -> Plugins -> Installed Plugins
+	- Maven Integration Plugin, Git Plugin, GitHub Plugin
+
+Configure the required tools => Manage Jenkins -> Tools
+	- add JDK path, add Git executable file path, add Maven path
+
+We are good to run the automation scripts from Jenkins
+1. Create a new Item
+2. Provide a name for the Item and select Maven Project
+3. Select Git as Source Code Management tool and provide the remote repository path
+4. Provide Maven Goal as test and Root POM as pom.xml under Build
+5. Click on Apply and Save ==> this will take you to the project specific dashboard
+6. Click on Build and this will pull the project from remote repository, downloads the required resources and runs the tests
+6. In main dashboard, we can see an entry created with the Item name
+7. 
+
+
+
+
    
    
