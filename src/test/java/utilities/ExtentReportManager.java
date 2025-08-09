@@ -93,7 +93,7 @@ public class ExtentReportManager implements ITestListener {
 		File extentReport = new File(extentReportPath);
 		
 		try {
-			Desktop.getDesktop().browse(extentReport.toURI());
+			//Desktop.getDesktop().browse(extentReport.toURI());
 			Desktop.getDesktop().open(extentReport);
 		}
 		catch(IOException e) {
