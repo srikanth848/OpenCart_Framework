@@ -20,6 +20,9 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="//a[text()='Login']")
 	WebElement logInLink;
 	
+	@FindBy(xpath="//a[text()='Logout']")
+	WebElement logOutLink;
+	
 	@FindBy(xpath="//input[@name='search']")
 	WebElement txtSearchBox;
 	
@@ -52,6 +55,19 @@ public class HomePage extends BasePage {
 	
 	public void clickShoppingCart() {
 		shoppingCartlnk.click();
+	}
+	
+	public boolean isLoggedInAlready() {
+		try {
+			return logOutLink.isDisplayed();
+		}
+		catch(Exception e) {
+			return false;
+		}
+	}
+	
+	public void clickLogOut() {
+		logOutLink.click();
 	}
 
 }

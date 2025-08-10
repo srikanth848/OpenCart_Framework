@@ -3,6 +3,7 @@ package pageObjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,6 +50,9 @@ public class ShoppingCartPage extends BasePage {
 	
 	@FindBy(xpath="//a[text()='Checkout']")
 	WebElement btnCheckout;
+	
+	@FindBy(xpath="//div[@id='content']//p")
+	WebElement msgCartEmpty;
 
 	
 	public boolean isProductInCart(String productName, String qunatity, double unitPrice, double totalUnitsPrice) {
@@ -68,7 +72,6 @@ public class ShoppingCartPage extends BasePage {
 			}
 		}
 		return flag;
-		
 	}
 	
 	public void clickEstimateShippingCharges() {
@@ -118,6 +121,21 @@ public class ShoppingCartPage extends BasePage {
 	
 	public void clickCheckout() {
 		btnCheckout.click();
+	}
+	
+	public void emptyShoppingCart() {
+		for(int i=0; i<products.size(); i++) {
+			List<WebElement> cells = products.get(0).findElements(By.tagName("td"));
+			WebElement removeProduct = cells.get(3).findElement(By.xpath("//button[@class='btn btn-danger']"));
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", removeProduct);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 

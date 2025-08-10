@@ -22,7 +22,7 @@ public class TC_07_CheckOutProductTest extends BaseClass {
 		
 		HomePage hmPage = new HomePage(driver);
 		hmPage.clickMyAccount();
-		logger.info("Clicked on MyAccount link..");		
+		logger.info("Clicked on MyAccount link..");
 		hmPage.clickLogin();
 		logger.info("Clicked on LogIn link..");
 		
@@ -38,6 +38,10 @@ public class TC_07_CheckOutProductTest extends BaseClass {
 		
 		logger.info("Validating My Account page...");
 		sf.assertTrue(myAcPage.isMyAccountPageExists());
+		
+		ShoppingCartPage shCart = new ShoppingCartPage(driver);
+		hmPage.clickShoppingCart();
+		shCart.emptyShoppingCart();
 		
 		hmPage.enterProductName("HP LP3065");
 		logger.info("Product entered in search box");
@@ -65,7 +69,6 @@ public class TC_07_CheckOutProductTest extends BaseClass {
 		hmPage.clickShoppingCart();
 		logger.info("Clicked on Shopping Cart..");
 		
-		ShoppingCartPage shCart = new ShoppingCartPage(driver);
 		logger.info("Product is available in cart...");
 		sf.assertTrue(shCart.isProductInCart("HP LP3065", "2", productPrice, productPrice*2));
 		

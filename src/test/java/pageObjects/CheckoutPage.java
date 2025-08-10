@@ -2,6 +2,7 @@ package pageObjects;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -41,6 +42,8 @@ public class CheckoutPage extends BasePage {
 	@FindBy(xpath="//div[@id='content']/h1")
 	WebElement msgOrderPlaced;
 	
+	WebDriverWait myWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	
 	public boolean isCheckoutPageExists() {
 		try {
 			return checkoutHeader.isDisplayed();
@@ -71,17 +74,18 @@ public class CheckoutPage extends BasePage {
 	}
 	
 	public double getTotalPriceIncludingShippingCharges() {
-		WebDriverWait myWait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		myWait.until(ExpectedConditions.visibilityOf(txtTotalPriceIncludingShippingCharges));
 		return Double.parseDouble(txtTotalPriceIncludingShippingCharges.getText().replaceAll("[^\\d.]", ""));
 	}
 	
 	public void clickConfirmOrder() {
-		btnConfirmOrder.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", btnConfirmOrder);
 	}
 	
 	public boolean isOrderPlacementsuccess() {
 		try {
+			myWait.until(ExpectedConditions.visibilityOf(msgOrderPlaced));
 			return msgOrderPlaced.isDisplayed();
 		}
 		catch(Exception e) {
