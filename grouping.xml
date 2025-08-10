@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="MasterSuite">
+<suite name="GroupingSuite">
   <groups>
     <run>
       <include name="Master"/>
@@ -19,6 +19,10 @@
       <class name="testCases.TC_01_AccountRegistrationTest"/>
       <class name="testCases.TC_02_LogInTest"/>
       <class name="testCases.TC_03_LogIn_DataDrivenTest"/>
+      <class name="testCases.TC_04_SearchProductTest"/>
+      <class name="testCases.TC_05_AddToCartTest_SearchPage"/>
+      <class name="testCases.TC_06_AddToCartTest_ItemPage"/>
+      <class name="testCases.TC_07_CheckOutProductTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

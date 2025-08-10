@@ -313,14 +313,33 @@ Configure the required tools => Manage Jenkins -> Tools
 	- add JDK path, add Git executable file path, add Maven path
 
 We are good to run the automation scripts from Jenkins
+
+Running project that is available in remote repository:
 1. Create a new Item
 2. Provide a name for the Item and select Maven Project
 3. Select Git as Source Code Management tool and provide the remote repository path
 4. Provide Maven Goal as test and Root POM as pom.xml under Build
 5. Click on Apply and Save ==> this will take you to the project specific dashboard
 6. Click on Build and this will pull the project from remote repository, downloads the required resources and runs the tests
-6. In main dashboard, we can see an entry created with the Item name
-7. 
+7. In main dashboard, we can see the Item entries created
+
+Running project that is available in local workspace:
+1. using pom.xml:
+** Select None as Source Code Management tool
+** Provide pom.xml file path
+
+2. using batch file
+** Select Freestyle Project instead of Maven Project
+** Select Executable Windows Batch Command and provide the .bat file path under build steps
+	- as this runs through command prompt mention "cd filePath"
+
+** Jenkins run the tests on headless mode by default
+
+As Jenkins owned by DevOps team, this tool won't be on our local machine and configuring pom.xml/.bat file paths are not recommended as these files/project won't be present in their environment/machine.
+
+
+
+
 
 
 

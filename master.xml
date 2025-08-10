@@ -9,9 +9,13 @@
   <parameter name="OS" value="Windows"></parameter>
   <parameter name="Browser" value="Chrome"></parameter>
     <classes>
-      <class name="testCases.TC_01_AccountRegistrationTest"/>
-      <class name="testCases.TC_02_LogInTest"/>
+      <!--class name="testCases.TC_01_AccountRegistrationTest"/-->
+      <!--class name="testCases.TC_02_LogInTest"/-->
       <!--class name="testCases.TC_03_LogIn_DataDrivenTest"/-->
+      <!--class name="testCases.TC_04_SearchProductTest"/-->
+      <!--class name="testCases.TC_05_AddToCartTest_SearchPage"/-->
+      <!--class name="testCases.TC_06_AddToCartTest_ItemPage"/-->
+      <class name="testCases.TC_07_CheckOutProductTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
