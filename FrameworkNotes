@@ -221,7 +221,7 @@ plug-ins 	 --> used for compiling and running the project
 1. Maven Compiler plug-in 
 2. Maven Surefire plug-in
 
-** configure testng.xml file under surefire plugin
+** configure testng.xml file suites under surefire plugin
 ** Run pom.xml as maven test --> this will internally execute testng.xml
 
 In order to run tests with CI tools, we would need Maven installed on our machine
@@ -336,13 +336,4 @@ Running project that is available in local workspace:
 ** Jenkins run the tests on headless mode by default
 
 As Jenkins owned by DevOps team, this tool won't be on our local machine and configuring pom.xml/.bat file paths are not recommended as these files/project won't be present in their environment/machine.
-
-
-
-
-
-
-
-
-   
    

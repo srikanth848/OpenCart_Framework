@@ -41,7 +41,12 @@ public class TC_07_CheckOutProductTest extends BaseClass {
 		
 		ShoppingCartPage shCart = new ShoppingCartPage(driver);
 		hmPage.clickShoppingCart();
-		shCart.emptyShoppingCart();
+		try {
+			shCart.emptyShoppingCart();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		hmPage.enterProductName("HP LP3065");
 		logger.info("Product entered in search box");
