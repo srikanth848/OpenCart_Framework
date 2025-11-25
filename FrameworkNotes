@@ -336,4 +336,18 @@ Running project that is available in local workspace:
 ** Jenkins run the tests on headless mode by default
 
 As Jenkins owned by DevOps team, this tool won't be on our local machine and configuring pom.xml/.bat file paths are not recommended as these files/project won't be present in their environment/machine.
-   
+
+
+About Automation Framework
+----------------------------
+Hybrid Framework
+developed using Maven and testNG with Java programming language
+followed POM design pattern
+Excel File used for test data management using apache POI library
+config properties file used for managing common data
+Base class that contains all the reusable methods like browser setup, tear down, screenshotCapture, methods for generating random Strings
+ExtentReports used for generating html reports
+log4j2 used for generating and viewing the logs during run time
+git version control system used
+
+

@@ -14,7 +14,7 @@ import testBase.BaseClass;
 
 public class TC_07_CheckOutProductTest extends BaseClass {
 	
-	@Test(groups="Master")
+	@Test(groups="Sanity")
 	public void verify_checkoutProcess() {
 		logger.info("**** Starting TC_07_CheckOutProductTest ****");
 		

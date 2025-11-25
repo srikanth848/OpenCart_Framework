@@ -136,14 +136,14 @@
           <div class="suite-GroupingSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testCases.TC_02_LogInTest</span>
+              <span class="class-name">testCases.TC_07_CheckOutProductTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verify_LogIn">
-                  </a> <!-- verify_LogIn -->
-                  <span class="method-name">verify_LogIn</span>
+                  <a name="verify_checkoutProcess">
+                  </a> <!-- verify_checkoutProcess -->
+                  <span class="method-name">verify_checkoutProcess</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -166,14 +166,14 @@
           <div class="suite-GroupingSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testCases.TC_07_CheckOutProductTest</span>
+              <span class="class-name">testCases.TC_02_LogInTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verify_checkoutProcess">
-                  </a> <!-- verify_checkoutProcess -->
-                  <span class="method-name">verify_checkoutProcess</span>
+                  <a name="verify_LogIn">
+                  </a> <!-- verify_LogIn -->
+                  <span class="method-name">verify_LogIn</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -203,22 +203,19 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;GroupingSuite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;groups&gt;
-    &lt;run&gt;
-      &lt;include name=&quot;Master&quot;/&gt;
-    &lt;/run&gt;
-  &lt;/groups&gt;
-  &lt;groups&gt;
-    &lt;run&gt;
-      &lt;include name=&quot;Master&quot;/&gt;
-    &lt;/run&gt;
-  &lt;/groups&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;utilities.ExtentReportManager&quot;/&gt;
+    &lt;listener class-name=&quot;utilities.RetryListener&quot;/&gt;
   &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;parameter name=&quot;OS&quot; value=&quot;Windows&quot;/&gt;
     &lt;parameter name=&quot;Browser&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;groups&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;Master&quot;/&gt;
+        &lt;include name=&quot;Sanity&quot;/&gt;
+      &lt;/run&gt;
+    &lt;/groups&gt;
     &lt;classes&gt;
       &lt;class name=&quot;testCases.TC_01_AccountRegistrationTest&quot;/&gt;
       &lt;class name=&quot;testCases.TC_02_LogInTest&quot;/&gt;
@@ -262,10 +259,6 @@
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
-                <span class="method-in-group-name">verify_checkoutProcess</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">verify_productSearch</span>
                 <br/>
               </div> <!-- method-in-group -->
@@ -283,6 +276,10 @@
               <br/>
               <div class="method-in-group">
                 <span class="method-in-group-name">verify_LogIn</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">verify_checkoutProcess</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -306,24 +303,24 @@ data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verify_checkoutProcess')
 data.setCell(0, 2, 'testCases.TC_07_CheckOutProductTest')
-data.setCell(0, 3, 27117);
+data.setCell(0, 3, 19625);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'verify_account_registration')
 data.setCell(1, 2, 'testCases.TC_01_AccountRegistrationTest')
-data.setCell(1, 3, 10182);
+data.setCell(1, 3, 2852);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'verify_LogIn')
 data.setCell(2, 2, 'testCases.TC_02_LogInTest')
-data.setCell(2, 3, 2231);
+data.setCell(2, 3, 1665);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'verify_productSearch')
 data.setCell(3, 2, 'testCases.TC_04_SearchProductTest')
-data.setCell(3, 3, 753);
+data.setCell(3, 3, 540);
 window.suiteTableData['GroupingSuite']= { tableData: data, tableDiv: 'times-div-GroupingSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 40 seconds</span>
+              <span class="suite-total-time">Total running time: 24 seconds</span>
               <div id="times-div-GroupingSuite">
               </div> <!-- times-div-GroupingSuite -->
             </div> <!-- times-div -->
@@ -342,6 +339,13 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
+              <span class="ignored-class-name">testCases.TC_06_AddToCartTest_ItemPage</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">verify_addToCart</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
               <span class="ignored-class-name">testCases.TC_03_LogIn_DataDrivenTest</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">verify_logIn_dataDrivenTest</span>
@@ -350,13 +354,6 @@ return data;
             </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">testCases.TC_05_AddToCartTest_SearchPage</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">verify_addToCart</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">testCases.TC_06_AddToCartTest_ItemPage</span>
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">verify_addToCart</span>
                 <br/>
@@ -377,56 +374,56 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verify_account_registration</span>
-                <span class="method-start">11012 ms</span>
+                <span class="method-start">6291 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">21300 ms</span>
+                <span class="method-start">9166 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testCases.TC_02_LogInTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup(Windows, Chrome)</span>
-                <span class="method-start">21893 ms</span>
+                <span class="method-start">9436 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verify_LogIn</span>
-                <span class="method-start">26218 ms</span>
+                <span class="method-start">11989 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">28454 ms</span>
+                <span class="method-start">13657 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testCases.TC_04_SearchProductTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup(Windows, Chrome)</span>
-                <span class="method-start">28785 ms</span>
+                <span class="method-start">14026 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verify_productSearch</span>
-                <span class="method-start">32126 ms</span>
+                <span class="method-start">16850 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">32884 ms</span>
+                <span class="method-start">17392 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testCases.TC_07_CheckOutProductTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup(Windows, Chrome)</span>
-                <span class="method-start">33175 ms</span>
+                <span class="method-start">17586 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verify_checkoutProcess</span>
-                <span class="method-start">35796 ms</span>
+                <span class="method-start">19237 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">62921 ms</span>
+                <span class="method-start">38864 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
