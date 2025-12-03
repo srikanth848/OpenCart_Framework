@@ -83,7 +83,7 @@ Steps
 -----
 1. Create Maven Project
 2. Add required dependencies in pom.xml
-	- Selenium, Apache POI, TestNG, Extent Reports, Log4j, Commons
+	- Selenium, Apache POI, TestNG, Extent Reports, Log4j, Commons-io
 3. Create folder structure
 	- src/test/java
 		- pageObjects --> stores all web elements and required actions
@@ -117,7 +117,7 @@ Loggers   --> what level of logs should be generated
 
 ** Logger has to be imported from the correct package (log4j)
 ** Declare and initiate Logger in BaseClass
-	- Logger logger = LogManager.getLogger(this.getClass); --> this will get the class name during runtime based on the logging request made
+	- Logger logger = LogManager.getLogger(this.getClass()); --> this will get the class name during runtime based on the logging request made
 
 
 config.properties file
@@ -231,7 +231,7 @@ Run the below command to ensure Maven successfully installed
 ** Run the below command for running pom.xml through command prompt
 	- mvn test
 
-** Create run.bat (batch) file with the below contents and double click (running the batch file) 
+** Create run.bat (batch) file with the below contents and double click (for running the batch file) 
 	- cd <project path>
 	- mvn test
 	
@@ -349,5 +349,6 @@ Base class that contains all the reusable methods like browser setup, tear down,
 ExtentReports used for generating html reports
 log4j2 used for generating and viewing the logs during run time
 git version control system used
+using GitHub Co-pilot for code suggestions and completions
 
 

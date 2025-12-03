@@ -5,7 +5,7 @@ import org.testng.ITestResult;
 
 import testBase.BaseClass;
 
-public class RetryAnalyzer extends BaseClass implements IRetryAnalyzer {
+public class RetryAnalyzer implements IRetryAnalyzer {
 	
 	int retryCount = 0, maxRetryCount = 2;
 
