@@ -6,8 +6,8 @@
     <listener class-name="utilities.RetryListener"/>
   </listeners>
   <test thread-count="5" name="Test">
-  <parameter name="OS" value="Windows"></parameter>
-  <parameter name="Browser" value="Chrome"></parameter>
+  <parameter name="OS" value="Windows"/>
+  <parameter name="Browser" value="Chrome"/>
     <groups>
       <run>
       <include name="Master"/>
