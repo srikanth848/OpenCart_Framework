@@ -288,6 +288,19 @@ GIT & GitHUB workflow
 	- git clone "cloning repository URL"
 ** Clones the entire project
 
+12. Creating a branch, if not exists, and switching to it
+	- git checkout -b "branch name"  ==> creating and switching
+	- git checkout "branch name"	 ==> switching
+
+13. For checking the branches
+	- git branch
+
+14. For checking the remote repository branches
+	- git branch -r
+	
+15. For updating or refreshing the branches
+	- git fetch --prune
+
 
 Jenkins
 -------
